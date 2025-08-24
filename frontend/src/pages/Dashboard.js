@@ -8,7 +8,6 @@ import {
   TrendingUp, 
   Zap,
   ArrowRight,
-  ExternalLink,
   Code,
   Database,
   Globe,

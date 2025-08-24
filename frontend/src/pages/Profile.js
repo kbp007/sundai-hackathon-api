@@ -4,7 +4,6 @@ import {
   User, 
   Mail, 
   MapPin, 
-  Briefcase, 
   Github, 
   Linkedin, 
   Save, 

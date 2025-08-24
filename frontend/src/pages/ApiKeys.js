@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { 
   Key, 
   Plus, 
   Copy, 
   Trash2, 
-  Eye, 
-  EyeOff, 
   Loader2,
   CheckCircle,
   AlertCircle,
@@ -38,15 +36,15 @@ const ApiKeys = () => {
 
   useEffect(() => {
     fetchApiKeys();
-  }, []);
+  }, [fetchApiKeys]);
 
-  const fetchApiKeys = async () => {
+  const fetchApiKeys = useCallback(async () => {
     const result = await getApiKeys();
     if (result.success) {
       setApiKeys(result.data.keys || []);
     }
     setLoading(false);
-  };
+  }, [getApiKeys]);
 
   const handleGenerateKey = async (e) => {
     e.preventDefault();
