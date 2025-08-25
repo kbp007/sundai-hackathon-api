@@ -34,10 +34,6 @@ const ApiKeys = () => {
     { value: 'admin', label: 'Admin Access', description: 'Full access to all features' }
   ];
 
-  useEffect(() => {
-    fetchApiKeys();
-  }, [fetchApiKeys]);
-
   const fetchApiKeys = useCallback(async () => {
     const result = await getApiKeys();
     if (result.success) {
@@ -45,6 +41,10 @@ const ApiKeys = () => {
     }
     setLoading(false);
   }, [getApiKeys]);
+
+  useEffect(() => {
+    fetchApiKeys();
+  }, [fetchApiKeys]);
 
   const handleGenerateKey = async (e) => {
     e.preventDefault();
